@@ -17,8 +17,10 @@ let gameTo = "CounterStrike"
 let items = ["Overwatch", "Fortnite", "CounterStrike", "QuakeChampions"];
 let yaw = []
 let precision = []
+let dpi = 800
 let sensFrom = 6
 let sensTo
+let realCMO
 
 function setGame(valueToUpdate, i) {
     for (const [key, values] of Object.entries(games_dic)) {
@@ -32,6 +34,12 @@ function setGame(valueToUpdate, i) {
 function convertSens() {
     let tempSens = sensFrom * yaw[0] / yaw[1]
     sensTo = Number.parseFloat(tempSens).toFixed(precision[1])
+
+    realCMO = Number.parseFloat(realCM(sensTo, dpi, yaw[1])).toFixed(2)
+}
+
+function realCM(inputSens, dpi, yaw) {
+    return 914.4 / (inputSens * dpi * yaw)
 }
 </script>
 
@@ -45,6 +53,8 @@ function convertSens() {
     </select>
     <p>Sens:</p>
     <input type="text" bind:value={sensFrom} on:change={convertSens} size="1" />
+    <p>DPI: (for cm/360)</p>
+    <input type="text" bind:value={dpi} on:change={convertSens} size="1" />
     <p>To:</p>
     <select bind:value={gameTo} on:change={() => setGame(gameTo, 1)}>
         {#each items as item}
@@ -55,6 +65,7 @@ function convertSens() {
         <button on:click={convertSens}>Convert Sensitivity</button>
     </div>
     <p>{sensFrom} in {gameFrom} is {sensTo} in {gameTo}</p>
+    <p>({realCMO} cm/360)</p>
 </div>
 
 <style>

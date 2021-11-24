@@ -1030,29 +1030,29 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
+    	child_ctx[18] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
+    	child_ctx[18] = list[i];
     	return child_ctx;
     }
 
-    // (42:8) {#each items as item}
+    // (50:8) {#each items as item}
     function create_each_block_1(ctx) {
     	let option;
-    	let t_value = /*item*/ ctx[15] + "";
+    	let t_value = /*item*/ ctx[18] + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = /*item*/ ctx[15];
+    			option.__value = /*item*/ ctx[18];
     			option.value = option.__value;
-    			add_location(option, file$3, 42, 8, 1043);
+    			add_location(option, file$3, 50, 8, 1235);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -1068,26 +1068,26 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(42:8) {#each items as item}",
+    		source: "(50:8) {#each items as item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:8) {#each items as item}
+    // (60:8) {#each items as item}
     function create_each_block(ctx) {
     	let option;
-    	let t_value = /*item*/ ctx[15] + "";
+    	let t_value = /*item*/ ctx[18] + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = /*item*/ ctx[15];
+    			option.__value = /*item*/ ctx[18];
     			option.value = option.__value;
-    			add_location(option, file$3, 50, 8, 1339);
+    			add_location(option, file$3, 60, 8, 1638);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -1103,7 +1103,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(50:8) {#each items as item}",
+    		source: "(60:8) {#each items as item}",
     		ctx
     	});
 
@@ -1120,26 +1120,35 @@ var app = (function () {
     	let t4;
     	let p1;
     	let t6;
-    	let input;
+    	let input0;
     	let t7;
     	let p2;
     	let t9;
-    	let select1;
+    	let input1;
     	let t10;
+    	let p3;
+    	let t12;
+    	let select1;
+    	let t13;
     	let div0;
     	let button;
-    	let t12;
-    	let p3;
-    	let t13;
-    	let t14;
     	let t15;
+    	let p4;
     	let t16;
     	let t17;
     	let t18;
     	let t19;
+    	let t20;
+    	let t21;
+    	let t22;
+    	let t23;
+    	let p5;
+    	let t24;
+    	let t25;
+    	let t26;
     	let mounted;
     	let dispose;
-    	let each_value_1 = /*items*/ ctx[4];
+    	let each_value_1 = /*items*/ ctx[6];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -1147,7 +1156,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let each_value = /*items*/ ctx[4];
+    	let each_value = /*items*/ ctx[6];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -1174,45 +1183,60 @@ var app = (function () {
     			p1 = element("p");
     			p1.textContent = "Sens:";
     			t6 = space();
-    			input = element("input");
+    			input0 = element("input");
     			t7 = space();
     			p2 = element("p");
-    			p2.textContent = "To:";
+    			p2.textContent = "DPI: (for cm/360)";
     			t9 = space();
+    			input1 = element("input");
+    			t10 = space();
+    			p3 = element("p");
+    			p3.textContent = "To:";
+    			t12 = space();
     			select1 = element("select");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t10 = space();
+    			t13 = space();
     			div0 = element("div");
     			button = element("button");
     			button.textContent = "Convert Sensitivity";
-    			t12 = space();
-    			p3 = element("p");
-    			t13 = text(/*sensFrom*/ ctx[2]);
-    			t14 = text(" in ");
-    			t15 = text(/*gameFrom*/ ctx[0]);
-    			t16 = text(" is ");
-    			t17 = text(/*sensTo*/ ctx[3]);
-    			t18 = text(" in ");
-    			t19 = text(/*gameTo*/ ctx[1]);
-    			add_location(h1, file$3, 38, 4, 879);
-    			add_location(p0, file$3, 39, 4, 915);
-    			if (/*gameFrom*/ ctx[0] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[7].call(select0));
-    			add_location(select0, file$3, 40, 4, 933);
-    			add_location(p1, file$3, 45, 4, 1117);
-    			attr_dev(input, "type", "text");
-    			attr_dev(input, "size", "1");
-    			add_location(input, file$3, 46, 4, 1135);
-    			add_location(p2, file$3, 47, 4, 1217);
-    			if (/*gameTo*/ ctx[1] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[10].call(select1));
-    			add_location(select1, file$3, 48, 4, 1233);
-    			add_location(button, file$3, 54, 8, 1428);
-    			add_location(div0, file$3, 53, 4, 1413);
-    			add_location(p3, file$3, 56, 4, 1505);
-    			add_location(div1, file$3, 37, 0, 868);
+    			t15 = space();
+    			p4 = element("p");
+    			t16 = text(/*sensFrom*/ ctx[3]);
+    			t17 = text(" in ");
+    			t18 = text(/*gameFrom*/ ctx[0]);
+    			t19 = text(" is ");
+    			t20 = text(/*sensTo*/ ctx[4]);
+    			t21 = text(" in ");
+    			t22 = text(/*gameTo*/ ctx[1]);
+    			t23 = space();
+    			p5 = element("p");
+    			t24 = text("(");
+    			t25 = text(/*realCMO*/ ctx[5]);
+    			t26 = text(" cm/360)");
+    			add_location(h1, file$3, 46, 4, 1071);
+    			add_location(p0, file$3, 47, 4, 1107);
+    			if (/*gameFrom*/ ctx[0] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[9].call(select0));
+    			add_location(select0, file$3, 48, 4, 1125);
+    			add_location(p1, file$3, 53, 4, 1309);
+    			attr_dev(input0, "type", "text");
+    			attr_dev(input0, "size", "1");
+    			add_location(input0, file$3, 54, 4, 1327);
+    			add_location(p2, file$3, 55, 4, 1409);
+    			attr_dev(input1, "type", "text");
+    			attr_dev(input1, "size", "1");
+    			add_location(input1, file$3, 56, 4, 1439);
+    			add_location(p3, file$3, 57, 4, 1516);
+    			if (/*gameTo*/ ctx[1] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[13].call(select1));
+    			add_location(select1, file$3, 58, 4, 1532);
+    			add_location(button, file$3, 64, 8, 1727);
+    			add_location(div0, file$3, 63, 4, 1712);
+    			add_location(p4, file$3, 66, 4, 1804);
+    			add_location(p5, file$3, 67, 4, 1865);
+    			add_location(div1, file$3, 45, 0, 1060);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1233,11 +1257,16 @@ var app = (function () {
     			append_dev(div1, t4);
     			append_dev(div1, p1);
     			append_dev(div1, t6);
-    			append_dev(div1, input);
-    			set_input_value(input, /*sensFrom*/ ctx[2]);
+    			append_dev(div1, input0);
+    			set_input_value(input0, /*sensFrom*/ ctx[3]);
     			append_dev(div1, t7);
     			append_dev(div1, p2);
     			append_dev(div1, t9);
+    			append_dev(div1, input1);
+    			set_input_value(input1, /*dpi*/ ctx[2]);
+    			append_dev(div1, t10);
+    			append_dev(div1, p3);
+    			append_dev(div1, t12);
     			append_dev(div1, select1);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -1245,36 +1274,43 @@ var app = (function () {
     			}
 
     			select_option(select1, /*gameTo*/ ctx[1]);
-    			append_dev(div1, t10);
+    			append_dev(div1, t13);
     			append_dev(div1, div0);
     			append_dev(div0, button);
-    			append_dev(div1, t12);
-    			append_dev(div1, p3);
-    			append_dev(p3, t13);
-    			append_dev(p3, t14);
-    			append_dev(p3, t15);
-    			append_dev(p3, t16);
-    			append_dev(p3, t17);
-    			append_dev(p3, t18);
-    			append_dev(p3, t19);
+    			append_dev(div1, t15);
+    			append_dev(div1, p4);
+    			append_dev(p4, t16);
+    			append_dev(p4, t17);
+    			append_dev(p4, t18);
+    			append_dev(p4, t19);
+    			append_dev(p4, t20);
+    			append_dev(p4, t21);
+    			append_dev(p4, t22);
+    			append_dev(div1, t23);
+    			append_dev(div1, p5);
+    			append_dev(p5, t24);
+    			append_dev(p5, t25);
+    			append_dev(p5, t26);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[7]),
-    					listen_dev(select0, "change", /*change_handler*/ ctx[8], false, false, false),
-    					listen_dev(input, "input", /*input_input_handler*/ ctx[9]),
-    					listen_dev(input, "change", /*convertSens*/ ctx[6], false, false, false),
-    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[10]),
-    					listen_dev(select1, "change", /*change_handler_1*/ ctx[11], false, false, false),
-    					listen_dev(button, "click", /*convertSens*/ ctx[6], false, false, false)
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[9]),
+    					listen_dev(select0, "change", /*change_handler*/ ctx[10], false, false, false),
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
+    					listen_dev(input0, "change", /*convertSens*/ ctx[8], false, false, false),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[12]),
+    					listen_dev(input1, "change", /*convertSens*/ ctx[8], false, false, false),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[13]),
+    					listen_dev(select1, "change", /*change_handler_1*/ ctx[14], false, false, false),
+    					listen_dev(button, "click", /*convertSens*/ ctx[8], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*items*/ 16) {
-    				each_value_1 = /*items*/ ctx[4];
+    			if (dirty & /*items*/ 64) {
+    				each_value_1 = /*items*/ ctx[6];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -1297,16 +1333,20 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*gameFrom, items*/ 17) {
+    			if (dirty & /*gameFrom, items*/ 65) {
     				select_option(select0, /*gameFrom*/ ctx[0]);
     			}
 
-    			if (dirty & /*sensFrom*/ 4 && input.value !== /*sensFrom*/ ctx[2]) {
-    				set_input_value(input, /*sensFrom*/ ctx[2]);
+    			if (dirty & /*sensFrom*/ 8 && input0.value !== /*sensFrom*/ ctx[3]) {
+    				set_input_value(input0, /*sensFrom*/ ctx[3]);
     			}
 
-    			if (dirty & /*items*/ 16) {
-    				each_value = /*items*/ ctx[4];
+    			if (dirty & /*dpi*/ 4 && input1.value !== /*dpi*/ ctx[2]) {
+    				set_input_value(input1, /*dpi*/ ctx[2]);
+    			}
+
+    			if (dirty & /*items*/ 64) {
+    				each_value = /*items*/ ctx[6];
     				validate_each_argument(each_value);
     				let i;
 
@@ -1329,14 +1369,15 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*gameTo, items*/ 18) {
+    			if (dirty & /*gameTo, items*/ 66) {
     				select_option(select1, /*gameTo*/ ctx[1]);
     			}
 
-    			if (dirty & /*sensFrom*/ 4) set_data_dev(t13, /*sensFrom*/ ctx[2]);
-    			if (dirty & /*gameFrom*/ 1) set_data_dev(t15, /*gameFrom*/ ctx[0]);
-    			if (dirty & /*sensTo*/ 8) set_data_dev(t17, /*sensTo*/ ctx[3]);
-    			if (dirty & /*gameTo*/ 2) set_data_dev(t19, /*gameTo*/ ctx[1]);
+    			if (dirty & /*sensFrom*/ 8) set_data_dev(t16, /*sensFrom*/ ctx[3]);
+    			if (dirty & /*gameFrom*/ 1) set_data_dev(t18, /*gameFrom*/ ctx[0]);
+    			if (dirty & /*sensTo*/ 16) set_data_dev(t20, /*sensTo*/ ctx[4]);
+    			if (dirty & /*gameTo*/ 2) set_data_dev(t22, /*gameTo*/ ctx[1]);
+    			if (dirty & /*realCMO*/ 32) set_data_dev(t25, /*realCMO*/ ctx[5]);
     		},
     		i: noop,
     		o: noop,
@@ -1358,6 +1399,10 @@ var app = (function () {
     	});
 
     	return block;
+    }
+
+    function realCM(inputSens, dpi, yaw) {
+    	return 914.4 / (inputSens * dpi * yaw);
     }
 
     function instance$3($$self, $$props, $$invalidate) {
@@ -1382,8 +1427,10 @@ var app = (function () {
     	let items = ["Overwatch", "Fortnite", "CounterStrike", "QuakeChampions"];
     	let yaw = [];
     	let precision = [];
+    	let dpi = 800;
     	let sensFrom = 6;
     	let sensTo;
+    	let realCMO;
 
     	function setGame(valueToUpdate, i) {
     		for (const [key, values] of Object.entries(games_dic)) {
@@ -1396,7 +1443,8 @@ var app = (function () {
 
     	function convertSens() {
     		let tempSens = sensFrom * yaw[0] / yaw[1];
-    		$$invalidate(3, sensTo = Number.parseFloat(tempSens).toFixed(precision[1]));
+    		$$invalidate(4, sensTo = Number.parseFloat(tempSens).toFixed(precision[1]));
+    		$$invalidate(5, realCMO = Number.parseFloat(realCM(sensTo, dpi, yaw[1])).toFixed(2));
     	}
 
     	const writable_props = [];
@@ -1408,20 +1456,25 @@ var app = (function () {
     	function select0_change_handler() {
     		gameFrom = select_value(this);
     		$$invalidate(0, gameFrom);
-    		$$invalidate(4, items);
+    		$$invalidate(6, items);
     	}
 
     	const change_handler = () => setGame(gameFrom, 0);
 
-    	function input_input_handler() {
+    	function input0_input_handler() {
     		sensFrom = this.value;
-    		$$invalidate(2, sensFrom);
+    		$$invalidate(3, sensFrom);
+    	}
+
+    	function input1_input_handler() {
+    		dpi = this.value;
+    		$$invalidate(2, dpi);
     	}
 
     	function select1_change_handler() {
     		gameTo = select_value(this);
     		$$invalidate(1, gameTo);
-    		$$invalidate(4, items);
+    		$$invalidate(6, items);
     	}
 
     	const change_handler_1 = () => setGame(gameTo, 1);
@@ -1434,21 +1487,26 @@ var app = (function () {
     		items,
     		yaw,
     		precision,
+    		dpi,
     		sensFrom,
     		sensTo,
+    		realCMO,
     		setGame,
-    		convertSens
+    		convertSens,
+    		realCM
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('games_dic' in $$props) games_dic = $$props.games_dic;
     		if ('gameFrom' in $$props) $$invalidate(0, gameFrom = $$props.gameFrom);
     		if ('gameTo' in $$props) $$invalidate(1, gameTo = $$props.gameTo);
-    		if ('items' in $$props) $$invalidate(4, items = $$props.items);
+    		if ('items' in $$props) $$invalidate(6, items = $$props.items);
     		if ('yaw' in $$props) yaw = $$props.yaw;
     		if ('precision' in $$props) precision = $$props.precision;
-    		if ('sensFrom' in $$props) $$invalidate(2, sensFrom = $$props.sensFrom);
-    		if ('sensTo' in $$props) $$invalidate(3, sensTo = $$props.sensTo);
+    		if ('dpi' in $$props) $$invalidate(2, dpi = $$props.dpi);
+    		if ('sensFrom' in $$props) $$invalidate(3, sensFrom = $$props.sensFrom);
+    		if ('sensTo' in $$props) $$invalidate(4, sensTo = $$props.sensTo);
+    		if ('realCMO' in $$props) $$invalidate(5, realCMO = $$props.realCMO);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -1458,14 +1516,17 @@ var app = (function () {
     	return [
     		gameFrom,
     		gameTo,
+    		dpi,
     		sensFrom,
     		sensTo,
+    		realCMO,
     		items,
     		setGame,
     		convertSens,
     		select0_change_handler,
     		change_handler,
-    		input_input_handler,
+    		input0_input_handler,
+    		input1_input_handler,
     		select1_change_handler,
     		change_handler_1
     	];
