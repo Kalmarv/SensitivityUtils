@@ -17,7 +17,8 @@ let gameTo = "CounterStrike"
 let items = ["Overwatch", "Fortnite", "CounterStrike", "QuakeChampions"];
 let yaw = []
 let precision = []
-let dpi = 800
+let dpiFrom = 800
+let dpiTo = 400
 let sensFrom = 6
 let sensTo
 let realCMO
@@ -32,19 +33,19 @@ function setGame(valueToUpdate, i) {
 }
 
 function convertSens() {
-    let tempSens = sensFrom * yaw[0] / yaw[1]
+    let tempSens = (dpiFrom * sensFrom * yaw[0]) / (dpiTo * yaw[1])
     sensTo = Number.parseFloat(tempSens).toFixed(precision[1])
 
-    realCMO = Number.parseFloat(realCM(sensTo, dpi, yaw[1])).toFixed(2)
+    realCMO = Number.parseFloat(realCM(sensTo, dpiTo, yaw[1])).toFixed(2)
 }
 
 function realCM(inputSens, dpi, yaw) {
-    return 914.4 / (inputSens * dpi * yaw)
+    return (360 * 2.54) / (inputSens * dpi * yaw)
 }
 </script>
 
 <div>
-    <h1>Convert Between Games</h1>
+    <h1>Convert Between Games/DPIs</h1>
     <p>From:</p>
     <select bind:value={gameFrom} on:change={() => setGame(gameFrom, 0)}>
         {#each items as item}
@@ -53,19 +54,22 @@ function realCM(inputSens, dpi, yaw) {
     </select>
     <p>Sens:</p>
     <input type="text" bind:value={sensFrom} on:change={convertSens} size="1" />
-    <p>DPI: (for cm/360)</p>
-    <input type="text" bind:value={dpi} on:change={convertSens} size="1" />
+    <p>DPI From:</p>
+    <input type="text" bind:value={dpiFrom} on:change={convertSens} size="1" />
     <p>To:</p>
     <select bind:value={gameTo} on:change={() => setGame(gameTo, 1)}>
         {#each items as item}
         <option value={item}>{item}</option>
         {/each}
     </select>
+    <p>DPI To:</p>
+    <input type="text" bind:value={dpiTo} on:change={convertSens} size="1" />
     <div>
         <button on:click={convertSens}>Convert Sensitivity</button>
     </div>
-    <p>{sensFrom} in {gameFrom} is {sensTo} in {gameTo}</p>
-    <p>({realCMO} cm/360)</p>
+    <p>New Sens: {sensTo} ({realCMO} cm/360)</p>
+    <p>Converted {sensFrom} in {gameFrom} at {dpiFrom} DPI to <br>
+        {sensTo} in {gameTo} at {dpiTo} DPI</p>
 </div>
 
 <style>

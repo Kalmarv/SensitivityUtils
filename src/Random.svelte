@@ -30,13 +30,13 @@ function setGame() {
 function genSens() {
     let randNum =
         Number(lower) + Math.random() * (Number(higher) - Number(lower));
-    let unrounded = 4572.0 / (5.0 * randNum * Number(dpi) * yaw);
+    let unrounded = (360 * 2.54) / (randNum * Number(dpi) * yaw);
     sens = Number.parseFloat(unrounded).toFixed(precision);
     randNumRounded = Number.parseFloat(realCM(sens)).toFixed(2)
 }
 
 function realCM(inputSens) {
-    return 914.4 / (inputSens * dpi * yaw)
+    return (360 * 2.54) / (inputSens * dpi * yaw)
 }
 </script>
 
