@@ -32,7 +32,7 @@ window.onpopstate = function(event) {
             {:else if page === "#convertFOV"}
             <FOV />
             {:else}
-            404: Page not Found
+            <Home />
             {/if}
         </div>
     </div>
