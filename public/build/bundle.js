@@ -604,84 +604,16 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[17] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
-    // (51:16) {#each items as item}
-    function create_each_block$1(ctx) {
-    	let option;
-    	let t_value = /*item*/ ctx[17] + "";
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			option = element("option");
-    			t = text(t_value);
-    			option.__value = /*item*/ ctx[17];
-    			option.value = option.__value;
-    			add_location(option, file$4, 51, 16, 1279);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, option, anchor);
-    			append_dev(option, t);
-    		},
-    		p: noop,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(option);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_each_block$1.name,
-    		type: "each",
-    		source: "(51:16) {#each items as item}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    function create_fragment$4(ctx) {
-    	let main;
-    	let div0;
-    	let h1;
-    	let t1;
-    	let div5;
-    	let div1;
-    	let h3;
-    	let t3;
+    // (56:12) {#if !custom.yaw}
+    function create_if_block_1$1(ctx) {
     	let select;
-    	let t4;
-    	let div2;
-    	let p0;
-    	let t6;
-    	let input0;
-    	let t7;
-    	let p1;
-    	let t9;
-    	let input1;
-    	let t10;
-    	let p2;
-    	let t12;
-    	let input2;
-    	let t13;
-    	let div3;
-    	let button;
-    	let t15;
-    	let div4;
-    	let p3;
-    	let t16;
-    	let t17;
-    	let t18;
-    	let p4;
-    	let t19;
-    	let t20;
-    	let t21;
     	let mounted;
     	let dispose;
-    	let each_value = /*items*/ ctx[6];
+    	let each_value = /*items*/ ctx[8];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -691,144 +623,36 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			div0 = element("div");
-    			h1 = element("h1");
-    			h1.textContent = "Random Sensitivity Generator";
-    			t1 = space();
-    			div5 = element("div");
-    			div1 = element("div");
-    			h3 = element("h3");
-    			h3.textContent = "Generate Random Sensitivity for:";
-    			t3 = space();
     			select = element("select");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t4 = space();
-    			div2 = element("div");
-    			p0 = element("p");
-    			p0.textContent = "DPI:";
-    			t6 = space();
-    			input0 = element("input");
-    			t7 = space();
-    			p1 = element("p");
-    			p1.textContent = "Min:";
-    			t9 = space();
-    			input1 = element("input");
-    			t10 = space();
-    			p2 = element("p");
-    			p2.textContent = "Max:";
-    			t12 = space();
-    			input2 = element("input");
-    			t13 = space();
-    			div3 = element("div");
-    			button = element("button");
-    			button.textContent = "Generate Sensitivity";
-    			t15 = space();
-    			div4 = element("div");
-    			p3 = element("p");
-    			t16 = text("Your sensitivity is: ");
-    			t17 = text(/*sens*/ ctx[1]);
-    			t18 = space();
-    			p4 = element("p");
-    			t19 = text("(");
-    			t20 = text(/*randNumRounded*/ ctx[5]);
-    			t21 = text(" cm/360)");
-    			add_location(h1, file$4, 44, 8, 1039);
-    			add_location(div0, file$4, 43, 4, 1024);
-    			add_location(h3, file$4, 48, 12, 1128);
-    			if (/*value*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[9].call(select));
-    			add_location(select, file$4, 49, 12, 1183);
-    			add_location(div1, file$4, 47, 8, 1109);
-    			add_location(p0, file$4, 56, 12, 1408);
-    			attr_dev(input0, "type", "text");
-    			attr_dev(input0, "size", "1");
-    			add_location(input0, file$4, 57, 12, 1433);
-    			add_location(p1, file$4, 58, 12, 1494);
-    			attr_dev(input1, "type", "text");
-    			attr_dev(input1, "size", "1");
-    			add_location(input1, file$4, 59, 12, 1519);
-    			add_location(p2, file$4, 60, 12, 1582);
-    			attr_dev(input2, "type", "text");
-    			attr_dev(input2, "size", "1");
-    			add_location(input2, file$4, 61, 12, 1607);
-    			add_location(div2, file$4, 55, 8, 1389);
-    			add_location(button, file$4, 64, 12, 1702);
-    			add_location(div3, file$4, 63, 8, 1683);
-    			add_location(p3, file$4, 67, 12, 1803);
-    			add_location(p4, file$4, 68, 12, 1851);
-    			add_location(div4, file$4, 66, 8, 1784);
-    			add_location(div5, file$4, 46, 4, 1094);
-    			add_location(main, file$4, 42, 0, 1012);
-    		},
-    		l: function claim(nodes) {
-    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    			if (/*value*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[12].call(select));
+    			add_location(select, file$4, 56, 12, 1304);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, main, anchor);
-    			append_dev(main, div0);
-    			append_dev(div0, h1);
-    			append_dev(main, t1);
-    			append_dev(main, div5);
-    			append_dev(div5, div1);
-    			append_dev(div1, h3);
-    			append_dev(div1, t3);
-    			append_dev(div1, select);
+    			insert_dev(target, select, anchor);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(select, null);
     			}
 
     			select_option(select, /*value*/ ctx[0]);
-    			append_dev(div5, t4);
-    			append_dev(div5, div2);
-    			append_dev(div2, p0);
-    			append_dev(div2, t6);
-    			append_dev(div2, input0);
-    			set_input_value(input0, /*dpi*/ ctx[2]);
-    			append_dev(div2, t7);
-    			append_dev(div2, p1);
-    			append_dev(div2, t9);
-    			append_dev(div2, input1);
-    			set_input_value(input1, /*lower*/ ctx[3]);
-    			append_dev(div2, t10);
-    			append_dev(div2, p2);
-    			append_dev(div2, t12);
-    			append_dev(div2, input2);
-    			set_input_value(input2, /*higher*/ ctx[4]);
-    			append_dev(div5, t13);
-    			append_dev(div5, div3);
-    			append_dev(div3, button);
-    			append_dev(div5, t15);
-    			append_dev(div5, div4);
-    			append_dev(div4, p3);
-    			append_dev(p3, t16);
-    			append_dev(p3, t17);
-    			append_dev(div4, t18);
-    			append_dev(div4, p4);
-    			append_dev(p4, t19);
-    			append_dev(p4, t20);
-    			append_dev(p4, t21);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(select, "change", /*select_change_handler*/ ctx[9]),
-    					listen_dev(select, "change", /*setGame*/ ctx[7], false, false, false),
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[10]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[11]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[12]),
-    					listen_dev(button, "click", /*genSens*/ ctx[8], false, false, false)
+    					listen_dev(select, "change", /*select_change_handler*/ ctx[12]),
+    					listen_dev(select, "change", /*setGame*/ ctx[10], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*items*/ 64) {
-    				each_value = /*items*/ ctx[6];
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*items*/ 256) {
+    				each_value = /*items*/ ctx[8];
     				validate_each_argument(each_value);
     				let i;
 
@@ -851,8 +675,325 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*value, items*/ 65) {
+    			if (dirty & /*value, items*/ 257) {
     				select_option(select, /*value*/ ctx[0]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(select);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(56:12) {#if !custom.yaw}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (58:16) {#each items as item}
+    function create_each_block$1(ctx) {
+    	let option;
+    	let t_value = /*item*/ ctx[20] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = /*item*/ ctx[20];
+    			option.value = option.__value;
+    			add_location(option, file$4, 58, 16, 1400);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(58:16) {#each items as item}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (63:12) {#if custom.yaw}
+    function create_if_block$1(ctx) {
+    	let p;
+    	let t1;
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Yaw:";
+    			t1 = space();
+    			input = element("input");
+    			add_location(p, file$4, 63, 16, 1551);
+    			attr_dev(input, "type", "text");
+    			attr_dev(input, "size", "2");
+    			add_location(input, file$4, 64, 16, 1580);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*yaw*/ ctx[5]);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[13]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*yaw*/ 32 && input.value !== /*yaw*/ ctx[5]) {
+    				set_input_value(input, /*yaw*/ ctx[5]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(63:12) {#if custom.yaw}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$4(ctx) {
+    	let main;
+    	let div0;
+    	let h1;
+    	let t1;
+    	let div6;
+    	let div2;
+    	let h3;
+    	let t3;
+    	let t4;
+    	let t5;
+    	let div1;
+    	let button0;
+    	let t7;
+    	let div3;
+    	let p0;
+    	let t9;
+    	let input0;
+    	let t10;
+    	let p1;
+    	let t12;
+    	let input1;
+    	let t13;
+    	let p2;
+    	let t15;
+    	let input2;
+    	let t16;
+    	let div4;
+    	let button1;
+    	let t18;
+    	let div5;
+    	let p3;
+    	let t19;
+    	let t20;
+    	let t21;
+    	let p4;
+    	let t22;
+    	let t23;
+    	let t24;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = !/*custom*/ ctx[7].yaw && create_if_block_1$1(ctx);
+    	let if_block1 = /*custom*/ ctx[7].yaw && create_if_block$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			div0 = element("div");
+    			h1 = element("h1");
+    			h1.textContent = "Random Sensitivity Generator";
+    			t1 = space();
+    			div6 = element("div");
+    			div2 = element("div");
+    			h3 = element("h3");
+    			h3.textContent = "Generate Random Sensitivity for:";
+    			t3 = space();
+    			if (if_block0) if_block0.c();
+    			t4 = space();
+    			if (if_block1) if_block1.c();
+    			t5 = space();
+    			div1 = element("div");
+    			button0 = element("button");
+    			button0.textContent = "Use Custom Yaw";
+    			t7 = space();
+    			div3 = element("div");
+    			p0 = element("p");
+    			p0.textContent = "DPI:";
+    			t9 = space();
+    			input0 = element("input");
+    			t10 = space();
+    			p1 = element("p");
+    			p1.textContent = "Min:";
+    			t12 = space();
+    			input1 = element("input");
+    			t13 = space();
+    			p2 = element("p");
+    			p2.textContent = "Max:";
+    			t15 = space();
+    			input2 = element("input");
+    			t16 = space();
+    			div4 = element("div");
+    			button1 = element("button");
+    			button1.textContent = "Generate Sensitivity";
+    			t18 = space();
+    			div5 = element("div");
+    			p3 = element("p");
+    			t19 = text("Your sensitivity is: ");
+    			t20 = text(/*sens*/ ctx[1]);
+    			t21 = space();
+    			p4 = element("p");
+    			t22 = text("(");
+    			t23 = text(/*randNumRounded*/ ctx[6]);
+    			t24 = text(" cm/360)");
+    			add_location(h1, file$4, 50, 8, 1129);
+    			add_location(div0, file$4, 49, 4, 1114);
+    			add_location(h3, file$4, 54, 12, 1218);
+    			add_location(button0, file$4, 67, 16, 1683);
+    			add_location(div1, file$4, 66, 12, 1660);
+    			add_location(div2, file$4, 53, 8, 1199);
+    			add_location(p0, file$4, 71, 12, 1816);
+    			attr_dev(input0, "type", "text");
+    			attr_dev(input0, "size", "1");
+    			add_location(input0, file$4, 72, 12, 1841);
+    			add_location(p1, file$4, 73, 12, 1902);
+    			attr_dev(input1, "type", "text");
+    			attr_dev(input1, "size", "1");
+    			add_location(input1, file$4, 74, 12, 1927);
+    			add_location(p2, file$4, 75, 12, 1990);
+    			attr_dev(input2, "type", "text");
+    			attr_dev(input2, "size", "1");
+    			add_location(input2, file$4, 76, 12, 2015);
+    			add_location(div3, file$4, 70, 8, 1797);
+    			add_location(button1, file$4, 79, 12, 2110);
+    			add_location(div4, file$4, 78, 8, 2091);
+    			add_location(p3, file$4, 82, 12, 2211);
+    			add_location(p4, file$4, 83, 12, 2259);
+    			add_location(div5, file$4, 81, 8, 2192);
+    			add_location(div6, file$4, 52, 4, 1184);
+    			add_location(main, file$4, 48, 0, 1102);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, div0);
+    			append_dev(div0, h1);
+    			append_dev(main, t1);
+    			append_dev(main, div6);
+    			append_dev(div6, div2);
+    			append_dev(div2, h3);
+    			append_dev(div2, t3);
+    			if (if_block0) if_block0.m(div2, null);
+    			append_dev(div2, t4);
+    			if (if_block1) if_block1.m(div2, null);
+    			append_dev(div2, t5);
+    			append_dev(div2, div1);
+    			append_dev(div1, button0);
+    			append_dev(div6, t7);
+    			append_dev(div6, div3);
+    			append_dev(div3, p0);
+    			append_dev(div3, t9);
+    			append_dev(div3, input0);
+    			set_input_value(input0, /*dpi*/ ctx[2]);
+    			append_dev(div3, t10);
+    			append_dev(div3, p1);
+    			append_dev(div3, t12);
+    			append_dev(div3, input1);
+    			set_input_value(input1, /*lower*/ ctx[3]);
+    			append_dev(div3, t13);
+    			append_dev(div3, p2);
+    			append_dev(div3, t15);
+    			append_dev(div3, input2);
+    			set_input_value(input2, /*higher*/ ctx[4]);
+    			append_dev(div6, t16);
+    			append_dev(div6, div4);
+    			append_dev(div4, button1);
+    			append_dev(div6, t18);
+    			append_dev(div6, div5);
+    			append_dev(div5, p3);
+    			append_dev(p3, t19);
+    			append_dev(p3, t20);
+    			append_dev(div5, t21);
+    			append_dev(div5, p4);
+    			append_dev(p4, t22);
+    			append_dev(p4, t23);
+    			append_dev(p4, t24);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*toggle*/ ctx[9], false, false, false),
+    					listen_dev(button0, "click", /*setGame*/ ctx[10], false, false, false),
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[14]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[15]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[16]),
+    					listen_dev(button1, "click", /*genSens*/ ctx[11], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!/*custom*/ ctx[7].yaw) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_1$1(ctx);
+    					if_block0.c();
+    					if_block0.m(div2, t4);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*custom*/ ctx[7].yaw) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block$1(ctx);
+    					if_block1.c();
+    					if_block1.m(div2, t5);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
     			}
 
     			if (dirty & /*dpi*/ 4 && input0.value !== /*dpi*/ ctx[2]) {
@@ -867,14 +1008,15 @@ var app = (function () {
     				set_input_value(input2, /*higher*/ ctx[4]);
     			}
 
-    			if (dirty & /*sens*/ 2) set_data_dev(t17, /*sens*/ ctx[1]);
-    			if (dirty & /*randNumRounded*/ 32) set_data_dev(t20, /*randNumRounded*/ ctx[5]);
+    			if (dirty & /*sens*/ 2) set_data_dev(t20, /*sens*/ ctx[1]);
+    			if (dirty & /*randNumRounded*/ 64) set_data_dev(t23, /*randNumRounded*/ ctx[6]);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
-    			destroy_each(each_blocks, detaching);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
     			mounted = false;
     			run_all(dispose);
     		}
@@ -911,11 +1053,16 @@ var app = (function () {
     	let yaw = 0.0066;
     	let precision = 2;
     	let randNumRounded = 28.86;
+    	let custom = { yaw: false };
+
+    	function toggle() {
+    		$$invalidate(7, custom.yaw = !custom.yaw, custom);
+    	}
 
     	function setGame() {
     		for (const [key, values] of Object.entries(games_dic)) {
     			if (key == value) {
-    				yaw = values[0];
+    				$$invalidate(5, yaw = values[0]);
     				precision = values[1];
     			}
     		}
@@ -925,7 +1072,7 @@ var app = (function () {
     		let randNum = Number(lower) + Math.random() * (Number(higher) - Number(lower));
     		let unrounded = 360 * 2.54 / (randNum * Number(dpi) * yaw);
     		$$invalidate(1, sens = Number.parseFloat(unrounded).toFixed(precision));
-    		$$invalidate(5, randNumRounded = Number.parseFloat(realCM(sens)).toFixed(2));
+    		$$invalidate(6, randNumRounded = Number.parseFloat(realCM(sens)).toFixed(2));
     	}
 
     	function realCM(inputSens) {
@@ -941,7 +1088,12 @@ var app = (function () {
     	function select_change_handler() {
     		value = select_value(this);
     		$$invalidate(0, value);
-    		$$invalidate(6, items);
+    		$$invalidate(8, items);
+    	}
+
+    	function input_input_handler() {
+    		yaw = this.value;
+    		$$invalidate(5, yaw);
     	}
 
     	function input0_input_handler() {
@@ -970,6 +1122,8 @@ var app = (function () {
     		yaw,
     		precision,
     		randNumRounded,
+    		custom,
+    		toggle,
     		setGame,
     		genSens,
     		realCM
@@ -978,14 +1132,15 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('games_dic' in $$props) games_dic = $$props.games_dic;
     		if ('value' in $$props) $$invalidate(0, value = $$props.value);
-    		if ('items' in $$props) $$invalidate(6, items = $$props.items);
+    		if ('items' in $$props) $$invalidate(8, items = $$props.items);
     		if ('sens' in $$props) $$invalidate(1, sens = $$props.sens);
     		if ('dpi' in $$props) $$invalidate(2, dpi = $$props.dpi);
     		if ('lower' in $$props) $$invalidate(3, lower = $$props.lower);
     		if ('higher' in $$props) $$invalidate(4, higher = $$props.higher);
-    		if ('yaw' in $$props) yaw = $$props.yaw;
+    		if ('yaw' in $$props) $$invalidate(5, yaw = $$props.yaw);
     		if ('precision' in $$props) precision = $$props.precision;
-    		if ('randNumRounded' in $$props) $$invalidate(5, randNumRounded = $$props.randNumRounded);
+    		if ('randNumRounded' in $$props) $$invalidate(6, randNumRounded = $$props.randNumRounded);
+    		if ('custom' in $$props) $$invalidate(7, custom = $$props.custom);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -998,11 +1153,15 @@ var app = (function () {
     		dpi,
     		lower,
     		higher,
+    		yaw,
     		randNumRounded,
+    		custom,
     		items,
+    		toggle,
     		setGame,
     		genSens,
     		select_change_handler,
+    		input_input_handler,
     		input0_input_handler,
     		input1_input_handler,
     		input2_input_handler

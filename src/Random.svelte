@@ -18,6 +18,12 @@ let precision = 2;
 
 let randNumRounded = 28.86
 
+let custom = { yaw: false }; 
+
+function toggle() {
+    custom.yaw = !custom.yaw;
+}
+
 function setGame() {
     for (const [key, values] of Object.entries(games_dic)) {
         if (key == value) {
@@ -47,11 +53,20 @@ function realCM(inputSens) {
     <div>
         <div>
             <h3>Generate Random Sensitivity for:</h3>
+            {#if !custom.yaw}
             <select bind:value on:change={setGame}>
                 {#each items as item}
                 <option value={item}>{item}</option>
                 {/each}
             </select>
+            {/if}
+            {#if custom.yaw}
+                <p>Yaw:</p>
+                <input type="text" bind:value={yaw} size="2" />
+            {/if}
+            <div>
+                <button on:click={toggle} on:click={setGame}>Use Custom Yaw</button>
+            </div>
         </div>
         <div>
             <p>DPI:</p>
@@ -71,4 +86,5 @@ function realCM(inputSens) {
     </div>
 </main>
 
-<style></style>
+<style>
+</style>
