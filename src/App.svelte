@@ -1,5 +1,6 @@
 <script>
 import Home from "./Home.svelte";
+import Current from "./Current.svelte";
 import Random from "./Random.svelte";
 import CM from "./CM.svelte";
 import FocalLength from "./FocalLength.svelte";
@@ -15,6 +16,7 @@ window.onpopstate = function(event) {
         <div id="sidebar" class="pane">
             <h1>Menu</h1>
             <a href="#home">Home</a>
+            <a href="#current">Find out your cm/360</a>
             <a href="#random">Random Sensitvity</a>
             <a href="#convertCM">Convert: Distance</a>
             <a href="#convertFL">Convert: Focal Length</a>
@@ -23,6 +25,8 @@ window.onpopstate = function(event) {
         <div id="content" class="pane">
             {#if page==="#home"}
             <Home />
+            {:else if page === "#current"}
+            <Current />
             {:else if page === "#random"}
             <Random />
             {:else if page === "#convertCM"}

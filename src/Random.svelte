@@ -80,8 +80,8 @@ function realCM(inputSens) {
             <button on:click={genSens}>Generate Sensitivity</button>
         </div>
         <div>
-            <p>Your sensitivity is: {sens}</p>
-            <p>({randNumRounded} cm/360)</p>
+            <h3>Your sensitivity is: {sens}</h3>
+            <h3>({randNumRounded} cm/360)</h3>
         </div>
     </div>
 </main>

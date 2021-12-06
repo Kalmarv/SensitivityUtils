@@ -67,9 +67,9 @@ function realCM(inputSens, dpi, yaw) {
     <div>
         <button on:click={convertSens}>Convert Sensitivity</button>
     </div>
-    <p>New Sens: {sensTo} ({realCMO} cm/360)</p>
-    <p>Converted {sensFrom} in {gameFrom} at {dpiFrom} DPI to <br>
-        {sensTo} in {gameTo} at {dpiTo} DPI</p>
+    <h3>New Sens: {sensTo} ({realCMO} cm/360)</h3>
+    <h3>Converted {sensFrom} in {gameFrom} at {dpiFrom} DPI to <br>
+        {sensTo} in {gameTo} at {dpiTo} DPI</h3>
 </div>
 
 <style>
