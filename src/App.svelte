@@ -1,65 +1,65 @@
-<script>
-import Home from "./Home.svelte";
-import Current from "./Current.svelte";
-import Random from "./Random.svelte";
-import CM from "./CM.svelte";
-import FocalLength from "./FocalLength.svelte";
-import FOV from "./FOV.svelte";
-let page = document.location.hash;
-window.onpopstate = function(event) {
-    page = document.location.hash;
-};
+<script lang="ts">
+  import logo from './assets/svelte.png'
+  import Counter from './lib/Counter.svelte'
 </script>
 
-<main id="main">
-    <div id="page">
-        <div id="sidebar" class="pane">
-            <h1>Menu</h1>
-            <a href="#home">Home</a>
-            <a href="#current">Find out your cm/360</a>
-            <a href="#random">Random Sensitvity</a>
-            <a href="#convertCM">Convert: Distance</a>
-            <a href="#convertFL">Convert: Focal Length</a>
-            <a href="#convertFOV">Convert: FOV</a>
-        </div>
-        <div id="content" class="pane">
-            {#if page==="#home"}
-            <Home />
-            {:else if page === "#current"}
-            <Current />
-            {:else if page === "#random"}
-            <Random />
-            {:else if page === "#convertCM"}
-            <CM />
-            {:else if page === "#convertFL"}
-            <FocalLength />
-            {:else if page === "#convertFOV"}
-            <FOV />
-            {:else}
-            <Home />
-            {/if}
-        </div>
-    </div>
+<main>
+  <img src={logo} alt="Svelte Logo" />
+  <h1>Hello Typescript!</h1>
+
+  <Counter />
+
+  <p>
+    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
+    apps.
+  </p>
+
+  <p>
+    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
+    the officially supported framework, also powered by Vite!
+  </p>
 </main>
 
 <style>
-#page {
-    display: flex;
-    height: 100vh;
-}
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
 
-.pane {
-    padding-left: 20px;
-}
+  main {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+  }
 
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    box-shadow: inset -10px 0 10px -5px hsla(0,0%,0%,.25)
-}
+  img {
+    height: 16rem;
+    width: 16rem;
+  }
 
-#content {
-    flex: 1 0 auto;
-}
+  h1 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+    line-height: 1.1;
+    margin: 2rem auto;
+    max-width: 14rem;
+  }
+
+  p {
+    max-width: 14rem;
+    margin: 1rem auto;
+    line-height: 1.35;
+  }
+
+  @media (min-width: 480px) {
+    h1 {
+      max-width: none;
+    }
+
+    p {
+      max-width: none;
+    }
+  }
 </style>
