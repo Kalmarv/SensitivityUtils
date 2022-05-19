@@ -2,7 +2,7 @@ const realCM = (sens: number, dpi: number, yaw: number): number => {
   return (360 * 2.54) / (sens * dpi * yaw)
 }
 
-const convertSens = (
+const convertSensToAnother = (
   dpiFrom: number,
   sensFrom: number,
   yawFrom: number,
@@ -16,4 +16,9 @@ const convertSens = (
   return realSens
 }
 
-export { convertSens }
+const convertSensToCM = (sens: number, dpi: number, yaw: number): string => {
+  if (typeof sens !== 'number' || typeof dpi !== 'number' || typeof yaw !== 'number') return
+  return realCM(sens, dpi, yaw).toFixed(2)
+}
+
+export { convertSensToCM, convertSensToAnother }
