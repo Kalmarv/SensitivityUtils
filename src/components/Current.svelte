@@ -30,14 +30,14 @@
     <div class="form-control my-2">
       <label class="input-group">
         <span>In-Game Sens</span>
-        <input bind:value={inputDPI} type="number" placeholder="Sensitivity" class="input input-bordered" />
+        <input bind:value={inputSens} type="number" placeholder="Sensitivity" class="input input-bordered" />
       </label>
     </div>
 
     <div class="form-control my-2">
       <label class="input-group">
         <span>DPI</span>
-        <input bind:value={inputSens} type="number" placeholder="DPI" class="input input-bordered" />
+        <input bind:value={inputDPI} type="number" placeholder="DPI" class="input input-bordered" />
       </label>
     </div>
     <!--  -->
