@@ -48,9 +48,9 @@
     <div class="stats shadow">
       <div class="stat place-items-center">
         <div class="stat-title">Your Sensitivity</div>
-        <div class="stat-value text-primary">{`${displayedSens} CM/360`}</div>
-        <div class="stat-desc">{`In-Game Sens: ${inputSens}`}</div>
-        <div class="stat-desc">{`DPI: ${inputDPI}`}</div>
+        <div class="stat-value text-primary mb-2">{`${displayedSens} CM/360`}</div>
+        <div class="stat-desc">{`In-Game Sens: ${inputSens ? inputSens : ''}`}</div>
+        <div class="stat-desc">{`DPI: ${inputDPI ? inputDPI : ''}`}</div>
       </div>
     </div>
     <!--  -->
