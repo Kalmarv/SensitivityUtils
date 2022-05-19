@@ -45,7 +45,7 @@
   <div class="divider lg:divider-horizontal" />
   <div class="grid flex-grow card bg-base-200 rounded-box place-items-center p-8 shadow-lg">
     <!--  -->
-    <div class="stats shadow-lg">
+    <div class="stats shadow-md">
       <div class="stat place-items-center">
         <div class="stat-title">Your Sensitivity</div>
         <div class="stat-value text-primary mb-2">{`${displayedSens} CM/360`}</div>
