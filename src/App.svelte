@@ -2,6 +2,7 @@
   import Home from './components/Home.svelte'
   import Current from './components/Current.svelte'
   import Navbar from './components/Navbar.svelte'
+  import Random from './components/Random.svelte'
 
   let page = document.location.hash
   window.onpopstate = (event: PopStateEvent) => {
@@ -36,6 +37,8 @@
       <Home />
     {:else if page === '#current'}
       <Current />
+    {:else if page === '#random'}
+      <Random />
     {:else}
       <Home />
     {/if}
