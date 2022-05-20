@@ -8,7 +8,7 @@
       </p>
       <p>
         If you're interested in how it was built, or want to give it a ⭐, check it out on
-        <a href="https://github.com/Kalmarv/Synify/issues" class="link">GitHub</a>
+        <a href="https://github.com/Kalmarv/SensitivityUtils" class="link">GitHub</a>
       </p>
     </div>
   </div>
