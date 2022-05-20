@@ -60,7 +60,7 @@
       <div class="stat place-items-center">
         <div class="stat-title">Your Sensitivity</div>
         <div class="stat-value text-primary mb-2">{`${displayedSens} in ${selectedGame.name}`}</div>
-        <div class="stat-desc">{`${displayedCM} CM/360`}</div>
+        <div class="stat-desc">{`${displayedCM ? displayedCM : '0.00'} CM/360`}</div>
       </div>
     </div>
     <!--  -->

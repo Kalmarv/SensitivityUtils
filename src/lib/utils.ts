@@ -22,6 +22,14 @@ const inGameToCMFixed = (sens: number, dpi: number, yaw: number): string => {
 }
 
 const generateInGame = (min: number, max: number, dpi: number, yaw: number, precision: number) => {
+  if (
+    typeof min !== 'number' ||
+    typeof max !== 'number' ||
+    typeof dpi !== 'number' ||
+    typeof yaw !== 'number' ||
+    typeof yaw !== 'number'
+  )
+    return
   const randBetweenRange = min + Math.random() * (max - min)
   const unRoundedSens = (360 * 2.54) / (randBetweenRange * dpi * yaw)
   const inGameSens = unRoundedSens.toFixed(precision)
