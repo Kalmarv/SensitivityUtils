@@ -3,6 +3,7 @@
   import Current from './components/Current.svelte'
   import Navbar from './components/Navbar.svelte'
   import Random from './components/Random.svelte'
+  import Convert from './components/Convert.svelte'
 
   let page = document.location.hash
   window.onpopstate = (event: PopStateEvent) => {
@@ -37,6 +38,8 @@
       <Home />
     {:else if page === '#current'}
       <Current />
+    {:else if page === '#convert'}
+      <Convert />
     {:else if page === '#random'}
       <Random />
     {:else}

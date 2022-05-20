@@ -22,7 +22,7 @@
   $: selectedGame, inputDPI, inputMin, inputMax, displayInfo()
 </script>
 
-<h1 class="text-center text-4xl m-8">Random Sensitivity</h1>
+<h1 class="text-center text-4xl m-8 font-bold">Random Sensitivity</h1>
 
 <div class="flex flex-col lg:flex-row mx-auto my-4">
   <div class="grid flex-grow card bg-base-200 rounded-box place-items-center p-8 shadow-lg">
