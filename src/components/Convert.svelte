@@ -77,9 +77,9 @@
       <div class="stat place-items-center">
         <div class="stat-title">Your New Sensitivity</div>
         <div class="stat-value text-primary mb-2">{`${newSens} in ${selectedToGame.name}`}</div>
-        <div class="stat-desc">{`${newSensCM} CM/360`}</div>
-        <div class="stat-desc">{`Game: ${selectedFromGame.name} → ${selectedToGame.name}`}</div>
+        <div class="stat-desc">{`${selectedFromGame.name} → ${selectedToGame.name}`}</div>
         <div class="stat-desc">{`DPI: ${fromDPI ? fromDPI : '0'} → ${toDPI ? toDPI : '0'}`}</div>
+        <div class="stat-desc">{`${newSensCM} CM/360`}</div>
       </div>
     </div>
     <!--  -->
