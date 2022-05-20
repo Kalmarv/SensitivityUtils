@@ -8,7 +8,7 @@
   let displayedSens: string = '0.00'
 
   const displaySens = () => {
-    const currentSens = inGameToCMFixed(inputSens, inputDPI, selectedGame.yaw)
+    const currentSens = inGameToCMFixed(inputSens, inputDPI, selectedGame)
     if (!currentSens) return
     displayedSens = currentSens
   }

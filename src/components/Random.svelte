@@ -11,8 +11,8 @@
   let displayedCM: string = '0.00'
 
   const displayInfo = () => {
-    const currentSens = generateInGame(inputMin, inputMax, inputDPI, selectedGame.yaw, selectedGame.precision)
-    const currentCM = inGameToCMFixed(Number(currentSens), inputDPI, selectedGame.yaw)
+    const currentSens = generateInGame(inputMin, inputMax, inputDPI, selectedGame)
+    const currentCM = inGameToCMFixed(Number(currentSens), inputDPI, selectedGame)
     if (!currentSens) return
     displayedSens = currentSens
     displayedCM = currentCM

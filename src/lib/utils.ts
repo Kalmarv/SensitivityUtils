@@ -1,8 +1,10 @@
+import type { game } from './types'
+
 const inGameToCM = (sens: number, dpi: number, yaw: number): number => {
   return (360 * 2.54) / (sens * dpi * yaw)
 }
 
-const convertSensToAnother = (
+export const convertSensToAnother = (
   dpiFrom: number,
   sensFrom: number,
   yawFrom: number,
@@ -16,24 +18,15 @@ const convertSensToAnother = (
   return realSens
 }
 
-const inGameToCMFixed = (sens: number, dpi: number, yaw: number): string => {
-  if (typeof sens !== 'number' || typeof dpi !== 'number' || typeof yaw !== 'number') return
-  return inGameToCM(sens, dpi, yaw).toFixed(2)
+export const inGameToCMFixed = (sens: number, dpi: number, game: game): string => {
+  if (typeof sens !== 'number' || typeof dpi !== 'number' || typeof game.yaw !== 'number') return
+  return inGameToCM(sens, dpi, game.yaw).toFixed(2)
 }
 
-const generateInGame = (min: number, max: number, dpi: number, yaw: number, precision: number) => {
-  if (
-    typeof min !== 'number' ||
-    typeof max !== 'number' ||
-    typeof dpi !== 'number' ||
-    typeof yaw !== 'number' ||
-    typeof yaw !== 'number'
-  )
-    return
+export const generateInGame = (min: number, max: number, dpi: number, game: game) => {
+  if (typeof min !== 'number' || typeof max !== 'number' || typeof dpi !== 'number') return
   const randBetweenRange = min + Math.random() * (max - min)
-  const unRoundedSens = (360 * 2.54) / (randBetweenRange * dpi * yaw)
-  const inGameSens = unRoundedSens.toFixed(precision)
+  const unRoundedSens = (360 * 2.54) / (randBetweenRange * dpi * game.yaw)
+  const inGameSens = unRoundedSens.toFixed(game.precision)
   return inGameSens
 }
-
-export { inGameToCMFixed, convertSensToAnother, generateInGame }
