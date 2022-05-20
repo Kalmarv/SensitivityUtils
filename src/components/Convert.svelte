@@ -1,6 +1,6 @@
 <script lang="ts">
   import { gamesList } from '../lib/games'
-  import { convertBetweenGames } from '../lib/utils'
+  import { convertBetweenGames, inGameToCMFixed } from '../lib/utils'
 
   let fromGameID = 0
   let toGameID = 1
@@ -10,11 +10,14 @@
   let toDPI: number | null = null
 
   let newSens: string = '0.00'
+  let newSensCM: string = '0.00'
 
   const displaySens = () => {
     const convertedSens = convertBetweenGames(fromDPI, fromSens, toDPI, selectedFromGame, selectedToGame)
-    if (!convertedSens) return
+    const convertedSensCm = inGameToCMFixed(Number(convertedSens), toDPI, selectedToGame)
+    if (!convertedSens || !convertedSensCm) return
     newSens = convertedSens
+    newSensCM = convertedSensCm
   }
 
   $: selectedFromGame = gamesList[fromGameID]
@@ -74,6 +77,7 @@
       <div class="stat place-items-center">
         <div class="stat-title">Your New Sensitivity</div>
         <div class="stat-value text-primary mb-2">{`${newSens} in ${selectedToGame.name}`}</div>
+        <div class="stat-desc">{`${newSensCM} CM/360`}</div>
         <div class="stat-desc">{`Game: ${selectedFromGame.name} → ${selectedToGame.name}`}</div>
         <div class="stat-desc">{`DPI: ${fromDPI ? fromDPI : '0'} → ${toDPI ? toDPI : '0'}`}</div>
       </div>
