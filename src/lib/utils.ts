@@ -17,6 +17,7 @@ export const inGameToCMFixed = (sens: number, dpi: number, game: game): string =
 
 export const generateInGame = (min: number, max: number, dpi: number, game: game) => {
   if (typeof min !== 'number' || typeof max !== 'number' || typeof dpi !== 'number') return
+  if (min > max) return
   const randBetweenRange = min + Math.random() * (max - min)
   const inGameSens = cmToInGame(randBetweenRange, dpi, game)
   return inGameSens
