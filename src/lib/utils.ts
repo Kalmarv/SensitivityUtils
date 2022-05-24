@@ -11,7 +11,7 @@ const cmToInGame = (cm360: number, dpi: number, game: game) => {
 }
 
 export const inGameToCMFixed = (sens: number, dpi: number, game: game): string => {
-  if (typeof sens !== 'number' || typeof dpi !== 'number' || typeof game.yaw !== 'number') return
+  if (typeof sens !== 'number' || typeof dpi !== 'number' || typeof game.yaw !== 'number') return '0.00'
   return inGameToCM(sens, dpi, game.yaw).toFixed(2)
 }
 
@@ -29,7 +29,7 @@ export const convertBetweenGames = (
   gameFrom: game,
   gameTo: game
 ): string => {
-  if (typeof dpiFrom !== 'number' || typeof inGameFromSens !== 'number' || typeof dpiTo !== 'number') return
+  if (typeof dpiFrom !== 'number' || typeof inGameFromSens !== 'number' || typeof dpiTo !== 'number') return ''
   const firstGameToCM = inGameToCM(inGameFromSens, dpiFrom, gameFrom.yaw)
   const cmtoSecondGame = cmToInGame(firstGameToCM, dpiTo, gameTo)
   return cmtoSecondGame
