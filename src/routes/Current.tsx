@@ -10,15 +10,7 @@ const Current = () => {
 
   useEffect(() => {
     setCm(inGameToCMFixed(sens as number, dpi as number, gamesList[inputGame]))
-  }, [sens])
-
-  useEffect(() => {
-    setCm(inGameToCMFixed(sens as number, dpi as number, gamesList[inputGame]))
-  }, [dpi])
-
-  useEffect(() => {
-    setCm(inGameToCMFixed(sens as number, dpi as number, gamesList[inputGame]))
-  }, [inputGame])
+  }, [inputGame, dpi, sens])
 
   return (
     <div>
