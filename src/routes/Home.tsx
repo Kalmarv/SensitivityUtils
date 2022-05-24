@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 const Home = () => {
   return (
     <div className="hero">
@@ -11,7 +9,7 @@ const Home = () => {
             sensitivities and more, check it out.
           </p>
           <p>
-            If you're interested in how it was built, or want to give it a ⭐, check it out on
+            If you're interested in how it was built, or want to give it a ⭐, check it out on{' '}
             <a href="https://github.com/Kalmarv/SensitivityUtils" className="link">
               GitHub
             </a>
