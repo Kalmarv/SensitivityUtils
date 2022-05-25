@@ -19,7 +19,7 @@ const Current = () => {
       <div className="mx-auto my-4 flex flex-col sm:max-w-lg lg:max-w-4xl lg:flex-row">
         <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
           <select
-            onChange={(e) => setInputGame(parseInt(e.target.value))}
+            onChange={(e) => setInputGame(Number(e.target.value))}
             className="select select-bordered my-2 w-full max-w-xs shadow-md"
           >
             {gamesList.map((game) => (
