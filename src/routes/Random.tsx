@@ -19,13 +19,13 @@ const Random = () => {
 
   return (
     <div>
-      <h1 className="text-center text-4xl m-8 font-bold">Random Sensitivity</h1>
+      <h1 className="m-8 text-center text-4xl font-bold">Random Sensitivity</h1>
 
-      <div className="flex flex-col lg:flex-row mx-auto lg:max-w-4xl sm:max-w-lg my-4">
-        <div className="grid flex-grow card bg-base-200 rounded-box place-items-center p-8 shadow-lg">
+      <div className="mx-auto my-4 flex flex-col sm:max-w-lg lg:max-w-4xl lg:flex-row">
+        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
           <select
             onChange={(e) => setInputGame(parseInt(e.target.value))}
-            className="select select-bordered w-full max-w-xs my-2 shadow-md"
+            className="select select-bordered my-2 w-full max-w-xs shadow-md"
           >
             {gamesList.map((game) => (
               <option key={game.id} value={game.id}>
@@ -71,18 +71,18 @@ const Random = () => {
           </div>
         </div>
         <div className="divider lg:divider-horizontal" />
-        <div className="grid flex-grow card bg-base-200 rounded-box place-items-center p-8 shadow-lg">
+        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
           <div className="stats shadow-lg">
             <div className="stat place-items-center">
               <div className="stat-title">Your Sensitivity</div>
-              <div className="stat-value text-primary mb-2">{`${sens ? sens : '0.00'} in ${
+              <div className="stat-value mb-2 text-primary">{`${sens ? sens : '0.00'} in ${
                 gamesList[inputGame].name
               }`}</div>
               <div className="stat-desc">{`${cm} CM/360`}</div>
             </div>
           </div>
           {/* IDK the idiomatic react way to call the same use effect on state change and button press */}
-          <button onClick={() => setRegen(regen + 1)} className="btn gap-2 mt-6">
+          <button onClick={() => setRegen(regen + 1)} className="btn mt-6 gap-2">
             Regenerate
             <svg
               xmlns="http://www.w3.org/2000/svg"
