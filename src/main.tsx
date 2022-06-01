@@ -6,6 +6,7 @@ import './index.css'
 import Convert from './routes/Convert'
 import Current from './routes/Current'
 import Home from './routes/Home'
+import PSA from './routes/PSA'
 import Random from './routes/Random'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/current" element={<Current />} />
           <Route path="/convert" element={<Convert />} />
           <Route path="/random" element={<Random />} />
+          <Route path="/psa" element={<PSA />} />
         </Route>
       </Routes>
     </HashRouter>

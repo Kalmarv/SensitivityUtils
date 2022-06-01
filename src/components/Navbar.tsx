@@ -15,6 +15,9 @@ const Navbar = () => {
       <li>
         <Link to="/random">Random</Link>
       </li>
+      <li>
+        <Link to="/psa">PSA</Link>
+      </li>
     </>
   )
 }
