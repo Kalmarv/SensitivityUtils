@@ -1,10 +1,10 @@
 import type { game } from './types'
 
-const inGameToCM = (sens: number, dpi: number, yaw: number): number => {
+export const inGameToCM = (sens: number, dpi: number, yaw: number): number => {
   return (360 * 2.54) / (sens * dpi * yaw)
 }
 
-const cmToInGame = (cm360: number, dpi: number, game: game) => {
+export const cmToInGame = (cm360: number, dpi: number, game: game) => {
   const unRoundedSens = (360 * 2.54) / (cm360 * dpi * game.yaw)
   const inGameSens = unRoundedSens.toFixed(game.precision)
   return inGameSens
