@@ -1,6 +1,24 @@
 import { useState, useEffect } from 'react'
 import { gamesList } from '../lib/games'
+import { InputValue, SelectValue } from '../lib/types'
 import { convertBetweenGames, inGameToCMFixed } from '../lib/utils'
+import {
+  Card,
+  CardTitle,
+  Divider,
+  FormControl,
+  FormLabel,
+  Input,
+  Label,
+  Select,
+  Stat,
+  StatCenter,
+  StatDesc,
+  StatTitle,
+  StatValue,
+  Title,
+  UIContainer,
+} from '../styles/globals'
 
 const Convert = () => {
   const [gameFrom, setGameFrom] = useState(0)
@@ -26,91 +44,75 @@ const Convert = () => {
 
   return (
     <>
-      <h1 className="m-8 text-center text-4xl font-bold">Convert Sens</h1>
+      <Title>Convert Sens</Title>
 
-      <div className="mx-auto my-4 flex flex-col lg:flex-row">
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 px-8 py-4 shadow-lg">
-          <h1 className="stat-value pb-4 text-secondary">From</h1>
-          <select
-            value={gameFrom}
-            onChange={(e) => setGameFrom(Number(e.target.value))}
-            className="select select-bordered my-2 w-full max-w-xs shadow-md"
-          >
+      <UIContainer>
+        <Card>
+          <Title>From</Title>
+          <Select value={gameFrom} onChange={(e: SelectValue) => setGameFrom(Number(e.target.value))}>
             {gamesList.map((game) => (
               <option key={game.id} value={game.id}>
                 {game.name}
               </option>
             ))}
-          </select>
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>In-Game Sens</span>
-              <input
+          </Select>
+          <FormControl>
+            <FormLabel>
+              <Label>In-Game Sens</Label>
+              <Input
                 value={sens || ''}
-                onChange={(e) => setSens(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setSens(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="Sensitivity"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>DPI</span>
-              <input
+            </FormLabel>
+            <FormLabel>
+              <Label>DPI</Label>
+              <Input
                 value={dpiFrom || ''}
-                onChange={(e) => setDpiFrom(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setDpiFrom(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="DPI"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-        </div>
-        <div className="divider lg:divider-horizontal" />
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 px-8 py-4 shadow-lg">
-          <h1 className="stat-value pb-4 text-secondary">To</h1>
-          <select
-            value={gameTo}
-            onChange={(e) => setGameTo(Number(e.target.value))}
-            className="select select-bordered my-2 w-full max-w-xs shadow-md"
-          >
+            </FormLabel>
+          </FormControl>
+        </Card>
+        <Divider />
+        <Card>
+          <CardTitle>To</CardTitle>
+          <Select value={gameTo} onChange={(e: SelectValue) => setGameTo(Number(e.target.value))}>
             {gamesList.map((game) => (
               <option key={game.id} value={game.id}>
                 {game.name}
               </option>
             ))}
-          </select>
+          </Select>
 
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>DPI</span>
-              <input
+          <FormControl>
+            <FormLabel>
+              <Label>DPI</Label>
+              <Input
                 value={dpiTo || ''}
-                onChange={(e) => setDpiTo(Number(e.target.value) || undefined)}
+                onChange={(e: SelectValue) => setDpiTo(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="DPI"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-        </div>
-        <div className="divider lg:divider-horizontal" />
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
-          <div className="stats shadow-lg">
-            <div className="stat place-items-center">
-              <div className="stat-title">Your New Sensitivity</div>
-              <div className="stat-value mb-2 text-primary">{`${newSens ? newSens : '0.00'} in ${
-                gamesList[gameTo].name
-              }`}</div>
-              <div className="stat-desc">{`${gamesList[gameFrom].name} → ${gamesList[gameTo].name}`}</div>
-              <div className="stat-desc">{`DPI: ${dpiFrom ? dpiFrom : '0'} → ${dpiTo ? dpiTo : '0'}`}</div>
-              <div className="stat-desc">{`${newSensCM} CM/360`}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </FormLabel>
+          </FormControl>
+        </Card>
+        <Divider />
+        <Card>
+          <Stat>
+            <StatCenter>
+              <StatTitle>Your New Sensitivity</StatTitle>
+              <StatValue>{`${newSens || '0.00'} in ${gamesList[gameTo].name}`}</StatValue>
+              <StatDesc>{`${gamesList[gameFrom].name} → ${gamesList[gameTo].name}`}</StatDesc>
+              <StatDesc>{`DPI: ${dpiFrom || '0'} → ${dpiTo || '0'}`}</StatDesc>
+              <StatDesc>{`${newSensCM} CM/360`}</StatDesc>
+            </StatCenter>
+          </Stat>
+        </Card>
+      </UIContainer>
     </>
   )
 }

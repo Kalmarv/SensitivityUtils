@@ -1,6 +1,23 @@
 import { useState, useEffect } from 'react'
 import { gamesList } from '../lib/games'
+import { InputValue, SelectValue } from '../lib/types'
 import { inGameToCMFixed } from '../lib/utils'
+import {
+  Card,
+  Divider,
+  FormControl,
+  FormLabel,
+  Input,
+  Label,
+  Select,
+  Stat,
+  StatCenter,
+  StatDesc,
+  StatTitle,
+  StatValue,
+  Title,
+  UIContainer,
+} from '../styles/globals'
 
 const Current = () => {
   const [inputGame, setInputGame] = useState(0)
@@ -13,60 +30,54 @@ const Current = () => {
   }, [inputGame, dpi, sens])
 
   return (
-    <div>
-      <h1 className="m-8 text-center text-4xl font-bold">Calculate CM/360</h1>
+    <>
+      <Title>Calculate CM/360</Title>
 
-      <div className="mx-auto my-4 flex flex-col sm:max-w-lg lg:max-w-4xl lg:flex-row">
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
-          <select
-            onChange={(e) => setInputGame(Number(e.target.value))}
-            className="select select-bordered my-2 w-full max-w-xs shadow-md"
-          >
+      <UIContainer>
+        <Card>
+          <Select onChange={(e: SelectValue) => setInputGame(Number(e.target.value))}>
             {gamesList.map((game) => (
               <option key={game.id} value={game.id}>
                 {game.name}
               </option>
             ))}
-          </select>
+          </Select>
 
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>In-Game Sens</span>
-              <input
+          <FormControl>
+            <FormLabel>
+              <Label>In-Game Sens</Label>
+              <Input
                 value={sens || ''}
-                onChange={(e) => setSens(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setSens(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="Sensitivity"
                 className="input input-bordered"
               />
-            </label>
-          </div>
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>DPI</span>
-              <input
+            </FormLabel>
+            <FormLabel>
+              <Label>DPI</Label>
+              <Input
                 value={dpi || ''}
-                onChange={(e) => setDpi(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setDpi(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="DPI"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-        </div>
-        <div className="divider lg:divider-horizontal" />
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
-          <div className="stats shadow-lg">
-            <div className="stat place-items-center">
-              <div className="stat-title">Your Sensitivity</div>
-              <div className="stat-value mb-2 text-primary">{`${cm} CM/360`}</div>
-              <div className="stat-desc">{`In-Game Sens: ${sens ? sens : ''}`}</div>
-              <div className="stat-desc">{`DPI: ${dpi ? dpi : '0'}`}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </FormLabel>
+          </FormControl>
+        </Card>
+        <Divider />
+        <Card>
+          <Stat>
+            <StatCenter>
+              <StatTitle>Your Sensitivity</StatTitle>
+              <StatValue>{`${cm} CM/360`}</StatValue>
+              <StatDesc>{`In-Game Sens: ${sens || ''}`}</StatDesc>
+              <StatDesc>{`DPI: ${dpi || '0'}`}</StatDesc>
+            </StatCenter>
+          </Stat>
+        </Card>
+      </UIContainer>
+    </>
   )
 }
 

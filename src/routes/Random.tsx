@@ -1,6 +1,24 @@
 import { useState, useEffect } from 'react'
 import { gamesList } from '../lib/games'
 import { generateInGame, inGameToCMFixed } from '../lib/utils'
+import { ReloadSVG } from '../components/ReloadSVG'
+import {
+  Title,
+  UIContainer,
+  Card,
+  Select,
+  FormControl,
+  FormLabel,
+  Input,
+  Divider,
+  Stat,
+  StatCenter,
+  StatTitle,
+  StatValue,
+  StatDesc,
+  Label,
+} from '../styles/globals'
+import { InputValue, SelectValue } from '../lib/types'
 
 const Random = () => {
   const [inputGame, setInputGame] = useState(0)
@@ -18,86 +36,65 @@ const Random = () => {
   }, [inputGame, dpi, min, max, regen])
 
   return (
-    <div>
-      <h1 className="m-8 text-center text-4xl font-bold">Random Sensitivity</h1>
+    <>
+      <Title>Random Sensitivity</Title>
 
-      <div className="mx-auto my-4 flex flex-col sm:max-w-lg lg:max-w-4xl lg:flex-row">
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
-          <select
-            onChange={(e) => setInputGame(Number(e.target.value))}
-            className="select select-bordered my-2 w-full max-w-xs shadow-md"
-          >
+      <UIContainer>
+        <Card>
+          <Select onChange={(e: SelectValue) => setInputGame(Number(e.target.value))}>
             {gamesList.map((game) => (
               <option key={game.id} value={game.id}>
                 {game.name}
               </option>
             ))}
-          </select>
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>DPI</span>
-              <input
+          </Select>
+          <FormControl>
+            <FormLabel>
+              <Label>DPI</Label>
+              <Input
                 value={dpi || ''}
-                onChange={(e) => setDPI(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setDPI(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="DPI"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>Min</span>
-              <input
+            </FormLabel>
+            <FormLabel>
+              <Label>Min</Label>
+              <Input
                 value={min || ''}
-                onChange={(e) => setMin(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setMin(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="Minimum CM/360"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>Max</span>
-              <input
+            </FormLabel>
+            <FormLabel>
+              <Label>Max</Label>
+              <Input
                 value={max || ''}
-                onChange={(e) => setMax(Number(e.target.value) || undefined)}
+                onChange={(e: InputValue) => setMax(Number(e.target.value) || undefined)}
                 type="number"
                 placeholder="Maximum CM/360"
-                className="input input-bordered"
               />
-            </label>
-          </div>
-        </div>
-        <div className="divider lg:divider-horizontal" />
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 p-8 shadow-lg">
-          <div className="stats shadow-lg">
-            <div className="stat place-items-center">
-              <div className="stat-title">Your Sensitivity</div>
-              <div className="stat-value mb-2 text-primary">{`${sens ? sens : '0.00'} in ${
-                gamesList[inputGame].name
-              }`}</div>
-              <div className="stat-desc">{`${cm} CM/360`}</div>
-            </div>
-          </div>
+            </FormLabel>
+          </FormControl>
+        </Card>
+        <Divider />
+        <Card>
+          <Stat>
+            <StatCenter>
+              <StatTitle>Your Sensitivity</StatTitle>
+              <StatValue>{`${sens || '0.00'} in ${gamesList[inputGame].name}`}</StatValue>
+              <StatDesc>{`${cm} CM/360`}</StatDesc>
+            </StatCenter>
+          </Stat>
           {/* IDK the idiomatic react way to call the same use effect on state change and button press */}
           <button onClick={() => setRegen(regen + 1)} className="btn mt-6 gap-2">
             Regenerate
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-clockwise"
-            >
-              <path fillRule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
-              <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
-            </svg>
+            <ReloadSVG />
           </button>
-        </div>
-      </div>
-    </div>
+        </Card>
+      </UIContainer>
+    </>
   )
 }
 

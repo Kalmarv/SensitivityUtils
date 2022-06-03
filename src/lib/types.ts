@@ -16,3 +16,11 @@ export interface psaValues {
   lower: number
   higher: number
 }
+
+export interface SelectValue {
+  target: { value: Selection }
+}
+
+export interface InputValue {
+  target: { value: InputEvent }
+}

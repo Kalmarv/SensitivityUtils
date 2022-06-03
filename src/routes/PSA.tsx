@@ -1,6 +1,19 @@
 import { useEffect, useState } from 'react'
 import { addRow } from '../lib/addRow'
-import { Row } from '../lib/types'
+import { Row, InputValue } from '../lib/types'
+import {
+  Card,
+  Divider,
+  FormControl,
+  FormLabel,
+  Input,
+  Label,
+  StatCenter,
+  StatTitle,
+  StatValue,
+  Title,
+  UIContainer,
+} from '../styles/globals'
 
 const PSA = () => {
   const [sens, setSens] = useState<number | undefined>(undefined)
@@ -17,16 +30,16 @@ const PSA = () => {
 
   return (
     <>
-      <h1 className="m-8 text-center text-4xl font-bold">Perfect Sensitivity Approximation</h1>
+      <Title>Perfect Sensitivity Approximation</Title>
 
-      <div className="mx-auto my-4 flex flex-col lg:flex-row">
-        <div className="card rounded-box grid flex-grow justify-items-center bg-base-200 px-8 py-4 shadow-lg">
-          <div className="form-control my-2">
-            <label className="input-group shadow-md">
-              <span>Starting Sens</span>
-              <input
+      <UIContainer>
+        <Card>
+          <FormControl>
+            <FormLabel>
+              <Label>Starting Sens</Label>
+              <Input
                 value={sens || ''}
-                onChange={(e) => {
+                onChange={(e: InputValue) => {
                   setSens(Number(e.target.value) || undefined)
                   setRows([
                     {
@@ -39,9 +52,8 @@ const PSA = () => {
                 }}
                 type="number"
                 placeholder="Sensitivity"
-                className="input input-bordered"
               />
-            </label>
+            </FormLabel>
             <div className="flex justify-around ">
               <button onClick={() => setRows(addRow('lower', rows))} className="btn btn-primary mt-6">
                 Lower
@@ -50,10 +62,10 @@ const PSA = () => {
                 Higher
               </button>
             </div>
-          </div>
-        </div>
-        <div className="divider lg:divider-horizontal" />
-        <div className="card rounded-box grid flex-grow place-items-center bg-base-200 px-8 py-4 shadow-lg">
+          </FormControl>
+        </Card>
+        <Divider />
+        <Card>
           <div className="overflow-x-auto">
             <table className="table w-full mt-4">
               <thead>
@@ -76,14 +88,14 @@ const PSA = () => {
               </tbody>
             </table>
             {finalSens && (
-              <div className="stat place-items-center">
-                <div className="stat-title">Your Sensitivity</div>
-                <div className="stat-value mb-2 text-primary">{finalSens}</div>
-              </div>
+              <StatCenter>
+                <StatTitle>Your Sensitivity</StatTitle>
+                <StatValue>{finalSens}</StatValue>
+              </StatCenter>
             )}
           </div>
-        </div>
-      </div>
+        </Card>
+      </UIContainer>
     </>
   )
 }
