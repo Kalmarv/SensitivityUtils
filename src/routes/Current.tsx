@@ -70,9 +70,9 @@ const Current = () => {
           <Stat>
             <StatCenter>
               <StatTitle>Your Sensitivity</StatTitle>
-              <StatValue>{`${cm} CM/360`}</StatValue>
-              <StatDesc>{`In-Game Sens: ${sens || ''}`}</StatDesc>
-              <StatDesc>{`DPI: ${dpi || '0'}`}</StatDesc>
+              <StatValue id="cm">{`${cm} CM/360`}</StatValue>
+              <StatDesc id="sens">{`In-Game Sens: ${sens || ''}`}</StatDesc>
+              <StatDesc id="dpi">{`DPI: ${dpi || '0'}`}</StatDesc>
             </StatCenter>
           </Stat>
         </Card>

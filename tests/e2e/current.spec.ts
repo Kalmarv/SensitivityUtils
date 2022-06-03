@@ -1,29 +1,19 @@
 import { test, expect } from '@playwright/test'
 
-test('test', async ({ page }) => {
-  // Go to http://localhost:3000/
-  await page.goto('http://localhost:3000/')
-
-  // Click text=Current >> nth=0
-  await page.locator('text=Current').first().click()
-  await expect(page).toHaveURL('http://localhost:3000/#/current')
-
-  // Select 2
+// Calculating current sens
+test('Calculating Sens', async ({ page }) => {
+  await page.goto('http://localhost:3000/#/current')
   await page.locator('select').selectOption('2')
-
-  // Click [placeholder="Sensitivity"]
   await page.locator('[placeholder="Sensitivity"]').click()
-
-  // Fill [placeholder="Sensitivity"]
-  await page.locator('[placeholder="Sensitivity"]').fill('2.8')
-
-  // Press Tab
-  await page.locator('[placeholder="Sensitivity"]').press('Tab')
-
-  // Fill [placeholder="DPI"]
+  await page.locator('[placeholder="Sensitivity"]').fill('1.4')
+  await page.locator('[placeholder="DPI"]').click()
   await page.locator('[placeholder="DPI"]').fill('800')
 
-  // Click text=18.56 CM/360
-  const finalSens = page.locator('text=18.56 CM/360')
-  await expect(finalSens).toContainText('18.56 CM/360')
+  const sens = page.locator('id=sens')
+  const dpi = page.locator('id=dpi')
+  const cm = page.locator('id=cm')
+
+  await expect(cm).toContainText('37.11 CM/360')
+  await expect(sens).toContainText('1.4')
+  await expect(dpi).toContainText('800')
 })

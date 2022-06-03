@@ -90,7 +90,7 @@ const PSA = () => {
             {finalSens && (
               <StatCenter>
                 <StatTitle>Your Sensitivity</StatTitle>
-                <StatValue>{finalSens}</StatValue>
+                <StatValue id="sens">{finalSens}</StatValue>
               </StatCenter>
             )}
           </div>

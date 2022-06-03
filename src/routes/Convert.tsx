@@ -105,10 +105,10 @@ const Convert = () => {
           <Stat>
             <StatCenter>
               <StatTitle>Your New Sensitivity</StatTitle>
-              <StatValue>{`${newSens || '0.00'} in ${gamesList[gameTo].name}`}</StatValue>
-              <StatDesc>{`${gamesList[gameFrom].name} → ${gamesList[gameTo].name}`}</StatDesc>
-              <StatDesc>{`DPI: ${dpiFrom || '0'} → ${dpiTo || '0'}`}</StatDesc>
-              <StatDesc>{`${newSensCM} CM/360`}</StatDesc>
+              <StatValue id="sens">{`${newSens || '0.00'} in ${gamesList[gameTo].name}`}</StatValue>
+              <StatDesc id="game">{`${gamesList[gameFrom].name} → ${gamesList[gameTo].name}`}</StatDesc>
+              <StatDesc id="dpi">{`DPI: ${dpiFrom || '0'} → ${dpiTo || '0'}`}</StatDesc>
+              <StatDesc id="cm">{`${newSensCM} CM/360`}</StatDesc>
             </StatCenter>
           </Stat>
         </Card>

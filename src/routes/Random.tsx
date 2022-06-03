@@ -83,12 +83,12 @@ const Random = () => {
           <Stat>
             <StatCenter>
               <StatTitle>Your Sensitivity</StatTitle>
-              <StatValue>{`${sens || '0.00'} in ${gamesList[inputGame].name}`}</StatValue>
-              <StatDesc>{`${cm} CM/360`}</StatDesc>
+              <StatValue id="sens">{`${sens || '0.00'} in ${gamesList[inputGame].name}`}</StatValue>
+              <StatDesc id="cm">{`${cm} CM/360`}</StatDesc>
             </StatCenter>
           </Stat>
           {/* IDK the idiomatic react way to call the same use effect on state change and button press */}
-          <button onClick={() => setRegen(regen + 1)} className="btn mt-6 gap-2">
+          <button onClick={() => setRegen(regen + 1)} className="btn mt-6 gap-2" id="regen">
             Regenerate
             <ReloadSVG />
           </button>
