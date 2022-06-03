@@ -1,9 +1,9 @@
-import { Row } from './../src/lib/types'
-import { addRow } from './../src/lib/addRow'
+import { addRow } from '../../src/lib/addRow'
 import { expect, test } from 'vitest'
+import { Row } from '../../src/lib/types'
 
 test('inGameToCM()', () => {
-  const baseRow = {
+  const baseRow: Row = {
     id: 0,
     lower: 5,
     base: 10,

@@ -1,5 +1,5 @@
-import { gamesList } from './../src/lib/games'
-import { inGameToCM, cmToInGame, inGameToCMFixed, generateInGame, convertBetweenGames } from '../src/lib/utils'
+import { gamesList } from '../../src/lib/games'
+import { inGameToCM, cmToInGame, inGameToCMFixed, generateInGame, convertBetweenGames } from '../../src/lib/utils'
 
 import { expect, test } from 'vitest'
 
