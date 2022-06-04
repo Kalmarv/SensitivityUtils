@@ -6,10 +6,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "unit": "vitest",
-    "coverage": "vitest run --coverage",
-    "e2e": "playwright test",
-    "report": "playwright show-report"
+    "test:unit": "vitest",
+    "test:e2e": "playwright test",
+    "test:coverage": "vitest run --coverage",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "daisyui": "^2.15.0",

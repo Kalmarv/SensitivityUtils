@@ -27,13 +27,14 @@ npm run dev
 ### Unit Tests
 
 ```console
-npm run unit
+npm run test:unit
 ```
 
 ### End-to-End Tests
 
 ```console
-npm run e2e
+npm run dev
+npm run test:e2e
 ```
 
 ## Built With
