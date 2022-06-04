@@ -6,6 +6,7 @@ const App = () => {
     <div>
       <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+        <label htmlFor="my-drawer-3"></label>
         <div className="drawer-content flex flex-col">
           <div className="navbar w-full bg-base-300">
             <div className="flex-none lg:hidden">
