@@ -47,6 +47,14 @@ npm run test:e2e
 - [Vitest](https://vitest.dev/) - Unit testing
 - [Playwright](https://playwright.dev/) - End-to-end testing
 
+## Perfomance
+
+Perfect scores in lighthouse for all categories
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Kalmarv/SensitivityUtils/master/public/assets/pictures/lighthouseSensitivityUtils.png">
+</p>
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
