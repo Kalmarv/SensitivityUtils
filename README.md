@@ -30,6 +30,10 @@ If you wish to host the site yourself, you can simply click the button below
 
 ## Running the tests
 
+Unit tests cover every function involved in the sensitivity calculations.
+
+End-to-end tests cover the functionality of every page.
+
 ### Unit Tests
 
 ```console
@@ -41,6 +45,12 @@ npm run test:unit
 ```console
 npm run dev
 npm run test:e2e
+```
+
+E2E tests run headless by default, to test in a real browser, run the following
+
+```console
+npx playwright test --headed
 ```
 
 ## Built With
