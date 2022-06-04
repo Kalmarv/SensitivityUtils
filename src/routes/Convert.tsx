@@ -48,7 +48,7 @@ const Convert = () => {
 
       <UIContainer>
         <Card>
-          <Title>From</Title>
+          <CardTitle>From</CardTitle>
           <Select value={gameFrom} onChange={(e: SelectValue) => setGameFrom(Number(e.target.value))}>
             {gamesList.map((game) => (
               <option key={game.id} value={game.id}>
