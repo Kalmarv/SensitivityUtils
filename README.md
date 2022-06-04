@@ -2,6 +2,12 @@
 
 A collection of calulators for FPS games
 
+<br>
+<p align="center">
+  <img width="200" height="200" src="https://raw.githubusercontent.com/Kalmarv/SensitivityUtils/master/public/assets/pictures/android-chrome-512x512.png">
+</p>
+<br>
+
 ## Getting Started
 
 You can visit the site at [sens.kalmarv.xyz](https://sens.kalmarv.xyz/)
@@ -10,7 +16,7 @@ You can visit the site at [sens.kalmarv.xyz](https://sens.kalmarv.xyz/)
 
 If you want to install and run locally you'll need [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) installed.
 
-```
+```console
 git clone https://github.com/Kalmarv/SensitivityUtils
 cd SensitivityUtils
 npm install
@@ -43,4 +49,4 @@ npm run e2e
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
