@@ -39,7 +39,7 @@ npm run e2e
 ## Built With
 
 - [React](https://reactjs.org/) - The web framework used
-- [TypeScript](https://www.typescriptlang.org/) - For types, unsuprisingly
+- [TypeScript](https://www.typescriptlang.org/) - For types, unsurprisingly
 - [TailwindCSS](https://tailwindcss.com/) - Styling
 - [DaisyUI](https://daisyui.com/) - Tailwind Components
 - [Vite](https://vitejs.dev/) - Build tooling
