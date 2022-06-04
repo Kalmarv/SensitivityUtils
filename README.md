@@ -1,11 +1,10 @@
 # Sensitivity Utils
 
-A collection of calulators for FPS games
-
 <br>
 <p align="center">
   <img width="200" height="200" src="https://raw.githubusercontent.com/Kalmarv/SensitivityUtils/master/public/assets/pictures/android-chrome-512x512.png">
 </p>
+<h2 align="center">A collection of calulators for FPS games</h2>
 <br>
 
 ## Getting Started
@@ -27,13 +26,13 @@ npm run dev
 
 ### Unit Tests
 
-```
+```console
 npm run unit
 ```
 
 ### End-to-End Tests
 
-```
+```console
 npm run e2e
 ```
 
